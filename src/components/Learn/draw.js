@@ -1,4 +1,4 @@
-export function drawZShape(canvas) {
+export function drawCfrg(canvas) {
   const ctx = canvas.getContext("2d");
 
   ctx.fillStyle = "white";
@@ -18,7 +18,7 @@ export function drawZShape(canvas) {
   ctx.stroke();
 }
 
-export function drawOShape(canvas) {
+export function drawStupefy(canvas) {
   const ctx = canvas.getContext("2d");
 
   ctx.fillStyle = "white";
@@ -33,5 +33,62 @@ export function drawOShape(canvas) {
 
   ctx.beginPath();
   ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+  ctx.stroke();
+}
+
+export function drawExplShape(canvas) {
+  const ctx = canvas.getContext("2d");
+  const margin = canvas.width * 0.15;
+  const baseHeight = canvas.height * 0.8;
+  const peakHeight = canvas.height * 0.2;
+
+  ctx.fillStyle = "white";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.strokeStyle = "#1e90ff";
+  ctx.lineWidth = canvas.width * 0.0125;
+
+  ctx.beginPath();
+  ctx.moveTo(margin, baseHeight);
+  ctx.lineTo(canvas.width / 2, peakHeight);
+  ctx.lineTo(canvas.width - margin, baseHeight);
+  ctx.stroke();
+}
+
+export function drawObliviate(canvas) {
+  const ctx = canvas.getContext("2d");
+  const margin = canvas.width * 0.1;
+  const centerY = (canvas.height / 5) * 2.25;
+  const radius = canvas.width * 0.15;
+
+  ctx.fillStyle = "white";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.strokeStyle = "#1e90ff";
+  ctx.lineWidth = canvas.width * 0.0125;
+
+  ctx.beginPath();
+  ctx.moveTo(margin, (canvas.height / 5) * 3);
+  ctx.lineTo(canvas.width - margin, (canvas.height / 5) * 3);
+  ctx.moveTo(canvas.width / 2 + radius, centerY);
+  ctx.arc(canvas.width / 2, centerY, radius, 0, 2 * Math.PI);
+  ctx.stroke();
+}
+
+export function drawBombarda(canvas) {
+  const ctx = canvas.getContext("2d");
+  const margin = canvas.width * 0.15;
+  const baseHeight = canvas.height * 0.8;
+
+  ctx.fillStyle = "white";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.strokeStyle = "#1e90ff";
+  ctx.lineWidth = canvas.width * 0.0125;
+
+  ctx.beginPath();
+  ctx.moveTo(margin, baseHeight);
+  ctx.lineTo(margin, baseHeight / 2);
+  ctx.lineTo(canvas.width - margin, baseHeight / 2);
   ctx.stroke();
 }

@@ -1,4 +1,6 @@
 export const SpellsMap = {
-  cfrg: "Confringo",
   stpf: "Stupefy",
+  expl: "Expelliarmus",
+  bmbr: "Bombarda",
+  oblv: "Obliviate",
 };

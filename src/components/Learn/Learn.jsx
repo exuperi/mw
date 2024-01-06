@@ -2,21 +2,36 @@ import React, { useEffect, useRef, useState } from "react";
 import { getDataFromDataView } from "../../ble.const";
 import { SpellsMap } from "../../spells.const";
 import { Button, Flex } from "antd";
-import { drawOShape, drawZShape } from "./draw";
+import {
+  drawBombarda,
+  drawExplShape,
+  drawStupefy,
+  drawObliviate,
+} from "./draw";
 import { useNavigate } from "react-router-dom";
 import "./Learn.css";
 import AnimatedIcon from "../AnimatedIcon/AnimatedIcon";
 
 const Spells = [
   {
-    name: SpellsMap.cfrg,
-    id: "cfrg",
-    draw: drawZShape,
-  },
-  {
     name: SpellsMap.stpf,
     id: "stpf",
-    draw: drawOShape,
+    draw: drawStupefy,
+  },
+  {
+    name: SpellsMap.oblv,
+    id: "oblv",
+    draw: drawObliviate,
+  },
+  {
+    name: SpellsMap.expl,
+    id: "expl",
+    draw: drawExplShape,
+  },
+  {
+    name: SpellsMap.bmbr,
+    id: "bmbr",
+    draw: drawBombarda,
   },
 ];
 
@@ -59,6 +74,7 @@ export function Learn({ dataSource }) {
       spellContainer.className = "spell-container";
 
       const canvas = document.createElement("canvas");
+      canvas.style.cursor = "pointer";
       canvas.width = 100;
       canvas.height = 100;
       canvas.id = spell.id;
@@ -87,6 +103,7 @@ export function Learn({ dataSource }) {
   useEffect(() => {
     if (!selectedSpell) return;
     const lastSpell = gestures[gestures.length - 1];
+    console.log("Last spell", lastSpell);
     if (
       lastSpell &&
       lastSpell.name === selectedSpell.id &&
